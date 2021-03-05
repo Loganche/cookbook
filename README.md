@@ -9,3 +9,4 @@ Features:
 * Search by Ingredients (possibly by name)
 * Adding recipes
 * Editing recipes
+* 3 levels of Profile
