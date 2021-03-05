@@ -6,14 +6,13 @@
 
 {% block content %}
     <h1>Favourite Recipes</h1>
-    {% if recipes %}
         {% for x in recipes %}
+            {% if x.favourite %}
             <div class="alert mt-2"> <!  alert-warning == Yellow box around div block >
                 <h3>{{ x.title }}</h3>
+                <h5>Favourite: {{ x.favourite }}</h5>
                 <p>{{ x.description }}</p>
             </div>
+            {% endif %}
         {% endfor %}
-    {% else %}
-        <p>Still no favourite recipes!</p>
-    {% endif %}
 {% endblock %}

@@ -1,11 +1,11 @@
 from .models import Recipe, SignUp
-from django.forms import ModelForm, TextInput, Textarea, PasswordInput
+from django.forms import ModelForm, TextInput, Textarea, PasswordInput, CheckboxInput
 
 
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ["title", "description"]
+        fields = ["title", "description", "favourite"]
         widgets = {
             "title": TextInput(attrs={
                 'class': 'form-control',
@@ -14,6 +14,10 @@ class RecipeForm(ModelForm):
             "description": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Recipe description'
+            }),
+            "favourite": CheckboxInput(attrs={
+                # 'placeholder': 'Favourite',
+                # 'class': 'form-control'
             }),
         }
 

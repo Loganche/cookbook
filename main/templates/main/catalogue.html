@@ -10,6 +10,7 @@
         {% for x in recipes %}
             <div class="alert mt-2"> <!  alert-warning == Yellow box around div block >
                 <h3>{{ x.title }}</h3>
+                <h5>Favourite: {{ x.favourite }}</h5>
                 <p>{{ x.description }}</p>
             </div>
         {% endfor %}
