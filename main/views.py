@@ -20,6 +20,15 @@ def catalogue(request):
     return render(request, 'main/catalogue.html', context)
 
 
+def favourites(request):
+    recipes = Recipe.objects.order_by('id')[:10]
+    context = {
+        'title': 'Favourites',
+        'recipes': recipes
+    }
+    return render(request, 'main/favourites.html', context)
+
+
 def search(request):
     context = {
         'title': 'Search',
