@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .forms import RecipeForm
+from .forms import RecipeForm, SignUpForm
 from .models import Recipe
 
 
@@ -58,3 +58,22 @@ def about(request):
         'title': 'About',
     }
     return render(request, 'main/about.html', context)
+
+
+def signup(request):
+    error = ''
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main:home')
+        else:
+            error = 'Wrong input.'
+
+    form = SignUpForm
+    context = {
+        'title': 'Sign up',
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/signup.html', context)
