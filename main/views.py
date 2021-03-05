@@ -1,19 +1,60 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import RecipeForm
 from .models import Recipe
 
 
 def index(request):
-    return render(request, 'main/index.html', {'title': 'Main Page'})
+    context = {
+        'title': 'Home',
+    }
+    return render(request, 'main/index.html', context)
+
 
 def catalogue(request):
     recipes = Recipe.objects.order_by('id')[:10]
-    return render(request, 'main/catalogue.html', {'title': 'Catalogue', 'recipes': recipes})
+    context = {
+        'title': 'Catalogue',
+        'recipes': recipes
+    }
+    return render(request, 'main/catalogue.html', context)
+
 
 def search(request):
-    return render(request, 'main/search.html', {'title': 'Search'})
+    context = {
+        'title': 'Search',
+    }
+    return render(request, 'main/search.html', context)
+
+
+def new(request):
+    error = ''
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main:catalogue')
+        else:
+            error = 'Wrong input.'
+
+    form = RecipeForm
+    context = {
+        'title': 'Edit recipe',
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/new.html', context)
+
 
 def profile(request):
-    return render(request, 'main/profile.html', {'title': 'Profile'})
+    context = {
+        'title': 'Profile',
+    }
+    return render(request, 'main/profile.html', context)
+
 
 def about(request):
-    return render(request, 'main/about.html', {'title': 'About'})
+    context = {
+        'title': 'About',
+    }
+    return render(request, 'main/about.html', context)

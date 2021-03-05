@@ -1,0 +1,16 @@
+{% extends 'main/base1.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Edit recipe</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.description }}<br>
+        <button type="submit" class="btn btn-success">Save</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
