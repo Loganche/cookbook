@@ -1,5 +1,5 @@
 # cookbook
-## Django project 3d semester
+### Django project 3d semester
 
 Simple web-project on Python Django
 
