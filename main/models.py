@@ -5,4 +5,4 @@ class Recipe(models.Model):
     description = models.TextField('Description')
 
     def __str__(self):
-        return self.title
+        return self.title #Shows text in Query output
