@@ -5,7 +5,7 @@ Simple web-project on Python Django
 
 Features:
 
-*Catalogue
-*Search by Ingredients (possibly by name)
-*Adding recipes
-*Editing recipes
+* Catalogue
+* Search by Ingredients (possibly by name)
+* Adding recipes
+* Editing recipes
