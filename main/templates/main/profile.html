@@ -5,6 +5,17 @@
 {% endblock %}
 
 {% block content %}
+    <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{% url 'main:new' %}">New</a>
+            <a class="p-2 text-dark" href="{% url 'main:catalogue' %}">Catalogue</a>
+            <a class="p-2 text-dark" href="{% url 'main:users' %}">Users</a>
+        </nav>
+    </header>
     <h1>Profile</h1>
-    <p>Some user info</p>
+    <div class="alert mt-2"> <!  alert-warning == Yellow box around div block >
+        <h4>First Name: {{ user.firstname }}</h4>
+        <h4>Last Name: {{ user.lastname }}</h4>
+        <h4>Login: {{ user.login }}</h4>
+    </div>
 {% endblock %}

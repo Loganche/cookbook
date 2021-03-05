@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .forms import RecipeForm, SignUpForm
-from .models import Recipe
+from .models import Recipe, SignUp
 
 
 def index(request):
@@ -47,17 +47,12 @@ def new(request):
 
 
 def profile(request):
+    user = SignUp.objects.get(pk=1)
     context = {
         'title': 'Profile',
+        'user': user
     }
     return render(request, 'main/profile.html', context)
-
-
-def about(request):
-    context = {
-        'title': 'About',
-    }
-    return render(request, 'main/about.html', context)
 
 
 def signup(request):
@@ -77,3 +72,18 @@ def signup(request):
         'error': error
     }
     return render(request, 'main/signup.html', context)
+
+
+def users(request):
+    users = SignUp.objects.order_by('id')[:10]
+    context = {
+        'title': 'Users',
+        'users': users
+    }
+    return render(request, 'main/users.html', context)
+
+def about(request):
+    context = {
+        'title': 'About',
+    }
+    return render(request, 'main/about.html', context)
