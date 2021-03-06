@@ -1,4 +1,4 @@
-from .models import Recipe, SignUp
+from .models import Recipe, Ingredient
 from django.forms import ModelForm, TextInput, Textarea, PasswordInput, CheckboxInput
 
 
@@ -22,25 +22,14 @@ class RecipeForm(ModelForm):
         }
 
 
-class SignUpForm(ModelForm):
+class IngredientForm(ModelForm):
     class Meta:
-        model = SignUp
-        fields = ["login", "password", "firstname", "lastname",]
+        model = Ingredient
+        fields = ["name"]
         widgets = {
-            "login": TextInput(attrs={
+            "name": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Login'
-            }),
-            "password": PasswordInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Password'
-            }),
-            "firstname": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'First name'
-            }),
-            "lastname": TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Last name'
+                'placeholder': 'Ingredient name'
             }),
         }
+

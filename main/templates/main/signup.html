@@ -6,13 +6,5 @@
 
 {% block content %}
     <h1>Sign up</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.login }}<br>
-        {{ form.password }}<br>
-        {{ form.firstname }}<br>
-        {{ form.lastname }}<br>
-        <button type="submit" class="btn btn-success">Sign Up</button>
-        <span>{{ error }}</span>
-    </form>
+
 {% endblock %}

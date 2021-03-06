@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Recipe, SignUp
+from .models import Recipe, Ingredient
 
 admin.site.register(Recipe)
 
-admin.site.register(SignUp)
+admin.site.register(Ingredient)

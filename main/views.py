@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .forms import RecipeForm, SignUpForm
-from .models import Recipe, SignUp
+from .forms import RecipeForm
+from .models import Recipe
 
 
 def index(request):
@@ -56,38 +56,22 @@ def new(request):
 
 
 def profile(request):
-    user = SignUp.objects.get(pk=1)
     context = {
         'title': 'Profile',
-        'user': user
     }
     return render(request, 'main/profile.html', context)
 
 
 def signup(request):
-    error = ''
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('main:home')
-        else:
-            error = 'Wrong input.'
-
-    form = SignUpForm
     context = {
-        'title': 'Sign up',
-        'form': form,
-        'error': error
+        'title': 'Sign Up',
     }
     return render(request, 'main/signup.html', context)
 
 
 def users(request):
-    users = SignUp.objects.order_by('id')[:10]
     context = {
         'title': 'Users',
-        'users': users
     }
     return render(request, 'main/users.html', context)
 
