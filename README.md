@@ -1,4 +1,4 @@
-# cookbook
+# cookbook (DROPPED)
 ### Django project 3d semester
 
 Simple web-project on Python Django
